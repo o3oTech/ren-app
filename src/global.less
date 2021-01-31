@@ -1,0 +1,66 @@
+@import "./assets/MaShanZheng/MaShanZheng-embed.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "MaShanZheng", "STKaiti", Roboto, Arial, sans-serif;
+  height: 100vh;
+  background-color: #1a1c2a !important;
+  overflow: hidden;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  text-align: center;
+  color: #fff;
+  margin-top: 100px;
+}
+
+.zhui-switch-text {
+  font-family: "STKaiti";
+}
+
+#home {
+  .zhui-card::before {
+    display: none;
+  }
+  .am-list-item .am-list-line .am-list-extra {
+    flex-basis: initial;
+  }
+  .am-list-body {
+    background-color: transparent;
+  }
+  .am-list-item {
+    background-color: transparent;
+  }
+  .am-list-item .am-list-line .am-list-content {
+    color: #fff;
+  }
+  .am-list-item .am-list-line .am-list-extra {
+    color: #ccccd6;
+  }
+  .submit-block .am-list-content {
+    text-align: center;
+  }
+  .submit-block .am-button {
+    overflow: visible;
+  }
+}
+
+.am-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.zhui-switch-text {
+  font-size: 16px !important;
+  left: 6% !important;
+}

@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "MaShanZheng";
+    src: url("MaShanZheng.eot"); /* IE9 */
+    src: url("MaShanZheng.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    
+    url("MaShanZheng.woff") format("woff"), /* chrome、firefox */
+    url("MaShanZheng.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    
+    url("MaShanZheng.svg#MaShanZheng") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+
