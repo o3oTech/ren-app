@@ -38,9 +38,9 @@ const getXingNian = (Ymd, gender) => {
   const $diff = diff - startDiff + endDiff;
 
   if (Number(gender) === 1) {
-    const ganValue  = ((3 + $diff) % 10) || 10;
+    const ganValue = (3 + $diff) % 10 || 10;
     const gan = GanEnum[ganValue];
-    const zhiValue = ((3 + $diff ) % 12) || 12
+    const zhiValue = (3 + $diff) % 12 || 12;
     const zhi = ZhiEnum[zhiValue];
     return gan + zhi;
   } else {
@@ -70,7 +70,8 @@ const Nav = () => {
       //   <Icon key="1" type="ellipsis" />,
       // ]}
     >
-      六壬排盘 - ren.o3o.tech
+      六壬排盘<span style={{ fontFamily: "cursive", fontWeight: 700, marginLeft: 8 }}>ren</span>
+      .o3o.tech
     </NavBar>
   );
 };
@@ -169,9 +170,9 @@ const Main = () => {
 
   // 天盘数
   const getTianPanKey = (key) => {
-    if(gap> 0) {
+    if (gap > 0) {
       // 顺行
-      return  (key + gap) % 12 || 12;      
+      return (key + gap) % 12 || 12;
     } else {
       // 逆行
       const $value = key + gap;
@@ -438,11 +439,11 @@ const Main = () => {
     const index = data.findIndex(({ tianPan }) => {
       return tianPan === tianPanText;
     });
-    if(index > -1) {
+    if (index > -1) {
       const { text } = nobleData[index];
       return text;
     } else {
-      console.error('findGeneral',tianPanText)
+      console.error("findGeneral", tianPanText);
       return;
     }
   };
@@ -454,9 +455,10 @@ const Main = () => {
 
   function getThree() {
     const dayGanzhi = d.getDayInGanZhi();
-    const { refer=[] } = jsonData.find(({ row_id, col_id }) => {
-      return row_id === dayGanzhi && col_id === $dayGan;
-    }) || {};
+    const { refer = [] } =
+      jsonData.find(({ row_id, col_id }) => {
+        return row_id === dayGanzhi && col_id === $dayGan;
+      }) || {};
     return [...refer];
   }
 
@@ -573,14 +575,16 @@ const Main = () => {
                   x={0}
                   y={22}
                   anchor={[0, 0]}
-                  text={`月将${ZhiEnum[general]} ${d.getDayInGanZhi()}日 ${d.getTimeZhi()}时`}
-                />    
+                  text={`月将${
+                    ZhiEnum[general]
+                  } ${d.getDayInGanZhi()}日 ${d.getTimeZhi()}时`}
+                />
                 <SlimText
                   x={0}
                   y={44}
                   anchor={[0, 0]}
                   text={`公历：${moment($d).format("YYYY-MM-DD HH:mm")}`}
-                />                            
+                />
                 <SlimText
                   x={0}
                   y={66}
@@ -640,8 +644,8 @@ const Main = () => {
 const Wrapper = ({ children }) => {
   const { state } = useLocation();
   const history = useHistory();
-  if(!state) {
-    history.push('/')
+  if (!state) {
+    history.push("/");
     return null;
   }
   return <>{children}</>;
@@ -650,10 +654,9 @@ const Wrapper = ({ children }) => {
 const App = () => {
   return (
     <Wrapper>
-      <Main/>
+      <Main />
     </Wrapper>
-  )
+  );
 };
-
 
 export default App;
