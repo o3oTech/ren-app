@@ -573,30 +573,35 @@ const Main = () => {
                   x={0}
                   y={22}
                   anchor={[0, 0]}
-                  // text={`月将: ${ZhiEnum[general]}`}
-                  text={`${moment($d).format("YYYY-MM-DD")} 月将${ZhiEnum[general]} ${d.getDayInGanZhi()}日 ${d.getTimeZhi()}时`}
-                />
+                  text={`月将${ZhiEnum[general]} ${d.getDayInGanZhi()}日 ${d.getTimeZhi()}时`}
+                />    
                 <SlimText
                   x={0}
                   y={44}
+                  anchor={[0, 0]}
+                  text={`公历：${moment($d).format("YYYY-MM-DD HH:mm")}`}
+                />                            
+                <SlimText
+                  x={0}
+                  y={66}
                   anchor={[0, 0]}
                   text={`四柱: ${d.getYearInGanZhi()} ${d.getMonthInGanZhi()} ${d.getDayInGanZhi()} ${d.getTimeInGanZhi()}`}
                 />
                 <SlimText
                   x={0}
-                  y={66}
+                  y={88}
                   anchor={[0, 0]}
                   text={`旬空: ${d.getDayXun()}旬 ${d.getDayXunKong()}空`}
                 />
                 <SlimText
-                  x={0}
-                  y={88}
+                  x={-96}
+                  y={66}
                   anchor={[0, 0]}
                   text={`年命: ${getNianMing(ymd)}`}
                 />
                 <SlimText
-                  x={0}
-                  y={110}
+                  x={-96}
+                  y={88}
                   anchor={[0, 0]}
                   text={`行年: ${xingNian}`}
                 />
