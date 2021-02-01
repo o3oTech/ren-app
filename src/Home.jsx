@@ -3,14 +3,13 @@ import { DatePicker, Picker, List } from "antd-mobile";
 import { Lunar } from "lunar-javascript";
 import moment from "moment";
 import { Card, Icon, Button } from "zhui";
-import { SxEnum, TimeEnum } from "./invariant";
+import { SxEnum } from "./invariant";
 import { useHistory } from "react-router-dom";
 
 const nowTimeStamp = Date.now();
 const now = new Date(nowTimeStamp);
 
 const d = Lunar.fromDate(now);
-const timeZhi = d.getTimeZhi();
 
 const years = [];
 
