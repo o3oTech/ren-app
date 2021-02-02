@@ -284,7 +284,7 @@ const Main = () => {
     if (y < 2) {
       mainData.push({
         x,
-        y:y +1,
+        y: y + 1,
       });
     }
   }
@@ -470,6 +470,11 @@ const Main = () => {
     ref: findRef(item),
   }));
 
+  const prev = d.getPrevJieQi();
+// console.log('上一节气 = ' + prev.getName() + ' ' +prev.getSolar().toYmdHms());
+const next = d.getNextJieQi();
+// console.log('下一节气 = ' + next.getName() + ' ' +next.getSolar().toYmdHms());
+
   return (
     <>
       <Nav />
@@ -514,6 +519,19 @@ const Main = () => {
                 })}
               </Container>
               <Container position={[width / 2 - 20 * 2, 20 * 6 + 20 + 60]}>
+                {四课.reverse().map((item, i) => {
+                  const [upItem] = item;
+                  const { text } = upItem;
+                  const general = findGeneral(text);
+                  return (
+                    <SlimText
+                      x={fix + i * 20}
+                      y={0}
+                      text={NobleSlim[general]}
+                      key={i}
+                    />
+                  );
+                })}
                 {mainData.map(({ x, y }, i) => {
                   const width = 20;
                   const { text } = 四课数据.find(({ key }) => key === i);
@@ -531,9 +549,9 @@ const Main = () => {
                 {threeData.map(({ key, ref, general, gan }, i) => {
                   return (
                     <React.Fragment key={i}>
-                      <SlimText x={fix} y={fix + i * 20} text={gan} />
-                      <BasicText x={1 * 20} y={i * 20} text={key} />
-                      <SlimText x={fix + 2 * 20} y={fix + i * 20} text={ref} />
+                      <SlimText x={fix} y={fix + i * 20} text={ref} />                 
+                      <SlimText x={1 * 20} y={i * 20} text={gan} />            
+                      <BasicText x={fix + 2 * 20} y={fix + i * 20} text={key} />
                       <SlimText
                         x={fix + 3 * 20}
                         y={fix + i * 20}
@@ -543,9 +561,7 @@ const Main = () => {
                   );
                 })}
               </Container>
-              <Container
-                position={[width / 2 - 20 * 2, 20 * 15 + 60]}
-              >
+              <Container position={[width / 2 - 20 * 2, 20 * 15 + 60]}>
                 {gender === 1 && (
                   <Sprite
                     x={-60}
@@ -568,8 +584,10 @@ const Main = () => {
                   x={0}
                   y={0}
                   anchor={[0, 0]}
-                  text={`公历: ${moment($d).format("YYYY-MM-DD HH:mm")} 星期${Solar.fromDate($d).getWeekInChinese()}`}
-                />                
+                  text={`公历: ${moment($d).format(
+                    "YYYY-MM-DD HH:mm"
+                  )} 星期${Solar.fromDate($d).getWeekInChinese()}`}
+                />
                 <SlimText
                   x={0}
                   y={22}
@@ -580,10 +598,7 @@ const Main = () => {
                   x={0}
                   y={44}
                   anchor={[0, 0]}
-                  // text={`月将${
-                  //   ZhiEnum[general]
-                  // } ${d.getDayInGanZhi()}日 ${d.getTimeZhi()}时`}
-                  text=""
+                  text={`节气: ${prev.getName()} ${moment(prev.getSolar().toYmdHms()).format("MM-DD HH:mm")} ${next.getName()} ${moment(next.getSolar().toYmdHms()).format("MM-DD HH:mm")}`}
                 />
                 <SlimText
                   x={0}
