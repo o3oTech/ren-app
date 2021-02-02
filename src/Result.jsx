@@ -550,8 +550,8 @@ const next = d.getNextJieQi();
                   return (
                     <React.Fragment key={i}>
                       <SlimText x={fix} y={fix + i * 20} text={ref} />                 
-                      <SlimText x={1 * 20} y={i * 20} text={gan} />            
-                      <BasicText x={fix + 2 * 20} y={fix + i * 20} text={key} />
+                      <SlimText x={fix + 20} y={fix + i * 20} text={gan} />            
+                      <BasicText x={2 * 20} y={i * 20} text={key} />
                       <SlimText
                         x={fix + 3 * 20}
                         y={fix + i * 20}
@@ -598,7 +598,7 @@ const next = d.getNextJieQi();
                   x={0}
                   y={44}
                   anchor={[0, 0]}
-                  text={`节气: ${prev.getName()} ${moment(prev.getSolar().toYmdHms()).format("MM-DD HH:mm")} ${next.getName()} ${moment(next.getSolar().toYmdHms()).format("MM-DD HH:mm")}`}
+                  text={`节气: ${prev.getName()} ${moment(prev.getSolar().toYmdHms()).format("MM-DD")} ${next.getName()} ${moment(next.getSolar().toYmdHms()).format("MM-DD")}`}
                 />
                 <SlimText
                   x={0}
