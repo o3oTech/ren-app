@@ -11,7 +11,7 @@ import {
   Xuns,
   NobleSlim,
 } from "./invariant";
-import { Lunar } from "lunar-javascript";
+import { Lunar, Solar } from "lunar-javascript";
 import { Stem, Branch } from "fortel-codex";
 import jsonData from "./SQLite.json";
 import { NavBar, Icon } from "antd-mobile";
@@ -70,8 +70,7 @@ const Nav = () => {
       //   <Icon key="1" type="ellipsis" />,
       // ]}
     >
-      六壬排盘<span style={{ fontFamily: "cursive", fontWeight: 700, marginLeft: 8 }}>ren</span>
-      .o3o.tech
+      六壬排盘 ren.o3o.tech
     </NavBar>
   );
 };
@@ -285,7 +284,7 @@ const Main = () => {
     if (y < 2) {
       mainData.push({
         x,
-        y,
+        y:y +1,
       });
     }
   }
@@ -528,7 +527,7 @@ const Main = () => {
                   );
                 })}
               </Container>
-              <Container position={[width / 2 - 20 * 2, 20 * 8 + 20 * 2 + 60]}>
+              <Container position={[width / 2 - 20 * 2, 20 * 11 + 60]}>
                 {threeData.map(({ key, ref, general, gan }, i) => {
                   return (
                     <React.Fragment key={i}>
@@ -545,7 +544,7 @@ const Main = () => {
                 })}
               </Container>
               <Container
-                position={[width / 2 - 20 * 2, 20 * 11 + 20 * 2 + 20 + 60]}
+                position={[width / 2 - 20 * 2, 20 * 15 + 60]}
               >
                 {gender === 1 && (
                   <Sprite
@@ -569,21 +568,22 @@ const Main = () => {
                   x={0}
                   y={0}
                   anchor={[0, 0]}
-                  text={`占时: ${d.toString()}`}
-                />
+                  text={`公历: ${moment($d).format("YYYY-MM-DD HH:mm")} 星期${Solar.fromDate($d).getWeekInChinese()}`}
+                />                
                 <SlimText
                   x={0}
                   y={22}
                   anchor={[0, 0]}
-                  text={`月将${
-                    ZhiEnum[general]
-                  } ${d.getDayInGanZhi()}日 ${d.getTimeZhi()}时`}
+                  text={`农历: ${d.toString()}`}
                 />
                 <SlimText
                   x={0}
                   y={44}
                   anchor={[0, 0]}
-                  text={`公历：${moment($d).format("YYYY-MM-DD HH:mm")}`}
+                  // text={`月将${
+                  //   ZhiEnum[general]
+                  // } ${d.getDayInGanZhi()}日 ${d.getTimeZhi()}时`}
+                  text=""
                 />
                 <SlimText
                   x={0}
@@ -601,7 +601,7 @@ const Main = () => {
                   x={-96}
                   y={66}
                   anchor={[0, 0]}
-                  text={`年命: ${getNianMing(ymd)}`}
+                  text={`本命: ${getNianMing(ymd)}`}
                 />
                 <SlimText
                   x={-96}
