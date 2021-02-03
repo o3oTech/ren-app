@@ -99,7 +99,7 @@ INSERT INTO Refer(row_id,col_id,refer) VALUES ("庚午" , "戌", "申戌子");
 INSERT INTO Refer(row_id,col_id,refer) VALUES ("庚午" , "酉", "戌未酉");
 
 INSERT INTO Refer(row_id,col_id,refer) VALUES ("辛未" , "戌", "未丑戌");
-INSERT INTO Refer(row_id,col_id,refer) VALUES ("辛未" , "酉", "午辰寅");
+INSERT INTO Refer(row_id,col_id,refer) VALUES ("辛未" , "酉", "巳辰卯");
 INSERT INTO Refer(row_id,col_id,refer) VALUES ("辛未" , "申", "午辰寅");
 INSERT INTO Refer(row_id,col_id,refer) VALUES ("辛未" , "未", "亥未未");
 INSERT INTO Refer(row_id,col_id,refer) VALUES ("辛未" , "午", "卯亥未");
