@@ -63,7 +63,8 @@ const { children } = years.find(({ value }) => {
 });
 
 const isAfter = moment(now).isAfter(moment(d.getJieQiTable()["立春"].toYmd()));
-const defaultYearInfo = (isAfter || children.length ===1) ? children[0].value : children[1].value;
+const defaultYearInfo =
+  isAfter || children.length === 1 ? children[0].value : children[1].value;
 const defaultYear = [now.getFullYear(), defaultYearInfo];
 
 const gender = [
@@ -163,7 +164,7 @@ const Home = () => {
           cornerLeft="趋吉"
           cornerRight="避凶"
           img={<Icon color="#fff" type="refresh" style={{ fontSize: 100 }} />}
-          title="大六壬占卦"
+          title="大六壬起课"
           underline
           width="100%"
           style={{ height: "100vh", maxWidth: "auto" }}
@@ -201,7 +202,7 @@ const Home = () => {
               }}
             >
               <List.Item arrow="horizontal">占日</List.Item>
-            </DatePicker>            
+            </DatePicker>
             <DatePicker
               mode="time"
               minuteStep={2}

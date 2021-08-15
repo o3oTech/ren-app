@@ -70,7 +70,7 @@ const Nav = () => {
       //   <Icon key="1" type="ellipsis" />,
       // ]}
     >
-      六壬排盘 ren.o3o.tech
+      六壬排盘
     </NavBar>
   );
 };
@@ -471,9 +471,9 @@ const Main = () => {
   }));
 
   const prev = d.getPrevJieQi();
-// console.log('上一节气 = ' + prev.getName() + ' ' +prev.getSolar().toYmdHms());
-const next = d.getNextJieQi();
-// console.log('下一节气 = ' + next.getName() + ' ' +next.getSolar().toYmdHms());
+  // console.log('上一节气 = ' + prev.getName() + ' ' +prev.getSolar().toYmdHms());
+  const next = d.getNextJieQi();
+  // console.log('下一节气 = ' + next.getName() + ' ' +next.getSolar().toYmdHms());
 
   return (
     <>
@@ -549,8 +549,8 @@ const next = d.getNextJieQi();
                 {threeData.map(({ key, ref, general, gan }, i) => {
                   return (
                     <React.Fragment key={i}>
-                      <SlimText x={fix} y={fix + i * 20} text={ref} />                 
-                      <SlimText x={fix + 20} y={fix + i * 20} text={gan} />            
+                      <SlimText x={fix} y={fix + i * 20} text={ref} />
+                      <SlimText x={fix + 20} y={fix + i * 20} text={gan} />
                       <BasicText x={2 * 20} y={i * 20} text={key} />
                       <SlimText
                         x={fix + 3 * 20}
@@ -598,7 +598,11 @@ const next = d.getNextJieQi();
                   x={0}
                   y={44}
                   anchor={[0, 0]}
-                  text={`节气: ${prev.getName()} ${moment(prev.getSolar().toYmdHms()).format("MM-DD")} ${next.getName()} ${moment(next.getSolar().toYmdHms()).format("MM-DD")}`}
+                  text={`节气: ${prev.getName()} ${moment(
+                    prev.getSolar().toYmdHms()
+                  ).format("MM-DD")} ${next.getName()} ${moment(
+                    next.getSolar().toYmdHms()
+                  ).format("MM-DD")}`}
                 />
                 <SlimText
                   x={0}
